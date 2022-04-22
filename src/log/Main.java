@@ -7,16 +7,16 @@ public class Main {
     private static void configureLogging() {
 
         Logger logger = Logger.getLogger("org.stepic.java");
-        logger.log(Level.ALL, "org.stepic.java");
+        logger.setLevel(Level.ALL);
+        logger.setUseParentHandlers(false);
 
         Logger loggerA = Logger.getLogger("org.stepic.java.logging.ClassA");
-        loggerA.log(Level.SEVERE, "ClassA");
+        loggerA.setLevel(Level.ALL);
 
-        Logger loggerB = Logger.getLogger("org.stepic.java.logging.ClassA");
-        loggerB.log(Level.WARNING, "ClassB");
+        Logger loggerB = Logger.getLogger("org.stepic.java.logging.ClassB");
+        loggerB.setLevel(Level.WARNING);
 
         ConsoleHandler consoleHandler = new ConsoleHandler();
-        logger.setUseParentHandlers(false);
         XMLFormatter xmlFormatter = new XMLFormatter();
 
         consoleHandler.setFormatter(xmlFormatter);
